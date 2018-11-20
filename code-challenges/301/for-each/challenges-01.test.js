@@ -76,7 +76,9 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  arr.forEach(callback);
+  arr.forEach( (num, index, arr) => {
+    callback(num, arr)
+  });
   return arr;
 };
 
