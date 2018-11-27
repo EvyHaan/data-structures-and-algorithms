@@ -7,7 +7,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-    arr.sort((a, b) => b - a);
+    arr.sort( (a, b) =>  b - a);
     return arr;
 };
 
@@ -46,7 +46,20 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  arr.sort( (a, b) => {
+  let x = a.toUpperCase();
+  let y = b.toUpperCase();
+  
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0;  
+  });
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,7 +76,8 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort( (a,b) => a.price - b.price);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +89,20 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+  let x = a.toString().length;
+  let y = b.toString().length;
+  
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0;  
+  });
+
+  return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -97,7 +124,19 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort( (a, b) => {
+    let x = a.lastName;
+    let y = b.lastName;
+
+  if (x < y) {
+    return -1;
+  }
+  if (x > y) {
+    return 1;
+  }
+  return 0; 
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +150,27 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  arr.sort( (a, b) => {
+    let u = a.firstName;
+    let v = b.firstName;
+    let w = a.lastName;
+    let x = b.lastName;
+    let y = a.age;
+    let z = b.age;
+
+  if (w < x) {return -1;}
+  if (w > x) {return 1;}
+  if (w = x) {
+    if (u < v) {return -1;}
+    if (u > v) {return 1;}
+    if (u = v) {
+      if (y < z) {return -1;}
+      if (y > z) {return 1;}
+      return 0;
+    }
+  }; 
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -184,7 +243,7 @@ describe('Testing challenge 2', () => {
 });
 
 describe('Testing challenge 3', () => {
-  test('It should sort strings by length', () => {
+  test.skip('It should sort strings by length', () => {
     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
@@ -240,7 +299,7 @@ describe('Testing challenge 7', () => {
 });
 
 describe('Testing challenge 8', () => {
-  test.skip('It should sort people with more strict ordering', () => {
+  test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
       new Person('Casey', 'Codefellows', 37),
