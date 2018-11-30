@@ -11,8 +11,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  let regex = /\d+/g;
-  regex.test(input);
+  let regex = /\d/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,7 +22,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let regex = /\b[A-Z]\w+/g;
+  return str.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +32,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let resArr = [];
+  let regex = /^[a-j]\w*/gi;
+  for (var i in arr) {
+    if (arr[i].match(regex)) {
+      resArr.push(arr[i]);
+    }
+  }
+  return resArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,7 +51,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex =/^[Oo](ct)(ober)*\b/;
+  return regex.test(input)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,14 +99,14 @@ Run your tests from the console: jest challenges-04.solution.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
-  test('It should return true if the input is a number', () => {
+  test.skip('It should return true if the input is a number', () => {
     expect(isNum(1234567890)).toBeTruthy();
     expect(isNum('12345')).toBeTruthy();
   });
-  test('It should return true if the input contains a number', () => {
+  test.skip('It should return true if the input contains a number', () => {
     expect(isNum('h3llo w0rld')).toBeTruthy();
   });
-  test('It should return false if the input does not contain a number', () => {
+  test.skip('It should return false if the input does not contain a number', () => {
     expect(isNum('hello world')).toBeFalsy();
     expect(isNum('')).toBeFalsy();
   });
@@ -126,14 +135,14 @@ describe('Testing challenge 3', () => {
 });
 
 describe('Testing challenge 4', () => {
-  test.skip('It should match any of the acceptable inputs', () => {
+  test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
     expect(matchMonth('October')).toBeTruthy();
     expect(matchMonth('october')).toBeTruthy();
   });
 
-  test.skip('It should not match anything other than the acceptable inputs', () => {
+  test('It should not match anything other than the acceptable inputs', () => {
     expect(matchMonth('November')).toBeFalsy();
     expect(matchMonth('nov')).toBeFalsy();
     expect(matchMonth(123)).toBeFalsy();
