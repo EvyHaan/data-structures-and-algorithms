@@ -51,7 +51,7 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let regex =/^[Oo](ct)(ober)*\b/;
+  let regex =/^[Oo](ct)(ober)*\b/;    //    /^[Oo]ct(ober)?\b/
   return regex.test(input)
 };
 
@@ -64,6 +64,8 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let regex = /\w+\s/g
+  return str.match(regex)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +78,8 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  let regex = /(aeiou)/gi;
+  return str.replace(regex, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,12 +159,12 @@ describe('Testing challenge 4', () => {
 describe('Testing challenge 5', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
-  test.skip('It should only return words that are immediately followed by a space', () => {
+  test('It should only return words that are immediately followed by a space', () => {
     expect(noPunctuation(lorem)).toStrictEqual([ 'Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ' ]);
     expect(noPunctuation(lorem).length).toStrictEqual(23);
   });
 
-  test.skip('It should not contain words that are followed by any non-space character', () => {
+  test('It should not contain words that are followed by any non-space character', () => {
     expect(noPunctuation(lorem)).not.toContain(['amet,', 'elit.', 'egestas.', 'elit,', 'sed.', 'sem,', 'diam.', 'nibh.', 'porttitor.', 'euismod,', 'ultrices.', 'massa,', 'vel,', 'purus.', 'purus,', 'odio.', 'aliquet,', 'non,', 'sem.'])
   });
 });
@@ -168,11 +172,11 @@ describe('Testing challenge 5', () => {
 describe('Testing challenge 6', () => {
   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
-  test.skip('It should remove the vowels from the hangman string and replace them with underscores', () => {
+  test('It should remove the vowels from the hangman string and replace them with underscores', () => {
     expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
   });
 
-  test.skip('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
+  test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
     expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
   });
 });
