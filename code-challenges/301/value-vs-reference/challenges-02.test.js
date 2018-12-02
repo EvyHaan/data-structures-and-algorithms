@@ -99,7 +99,7 @@ Run your tests from the console: jest challenges-02.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
-  test.skip('It should append without modifying the oiginal', () => {
+  test('It should append without modifying the oiginal', () => {
     const a = 'This is my story.';
     const b = appendTheEnd(a);
 
@@ -109,7 +109,7 @@ describe('Testing challenge 1', () => {
 });
 
 describe('Testing challenge 2', () => {
-  test.skip('It should append by modifying the oiginal', () => {
+  test('It should append by modifying the oiginal', () => {
     const a = ['Yes', 'it', 'is'];
     appendFirstToLast(a);
 
@@ -118,7 +118,7 @@ describe('Testing challenge 2', () => {
 });
 
 describe('Testing challenge 3', () => {
-  test.skip('It should add a property to an object', () => {
+  test('It should add a property to an object', () => {
     const a = { fullName: 'Octavia Butler' };
     addBirthYearProperty(a, 1947);
 
@@ -127,7 +127,7 @@ describe('Testing challenge 3', () => {
 });
 
 describe('Testing challenge 4', () => {
-  test.skip('It should add a property to every object in an array', () => {
+  test('It should add a property to every object in an array', () => {
     const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
     setStatusAsAuthor(a);
 
