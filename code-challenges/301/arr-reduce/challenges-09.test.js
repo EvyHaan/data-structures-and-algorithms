@@ -66,7 +66,11 @@ let starWarsData = [{
 }]
 
 const returnNames = (arr) => {
-  // Solution code here...
+  let newArr = arr.reduce( (namesArr, person) => {
+    namesArr.push(person.name);
+    return namesArr;
+  }, []);
+  return newArr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,8 +79,13 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (arr) => {
-  // Solution code here...
+const reversedString = (str) => {
+  let arr = str.split('');
+  let reversedStr = arr.reduce( (newStr, currentLetter) => {
+    console.log(newStr);
+    return currentLetter + newStr
+  }, '');
+  return reversedStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,7 +137,13 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  let numChildren = arr.reduce( (childCounter, person) => {
+    if (person.children) {
+    childCounter += person.children.length;
+    }
+    return childCounter;
+  }, 0);
+  return numChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -226,20 +241,20 @@ describe('Testing challenge 1', () => {
 });
 
 describe('Testing challenge 2', () => {
-  test.skip('It should return an array continaing the names of the characters', () => {
+  test('It should return an array continaing the names of the characters', () => {
     expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
 
 describe('Testing challenge 3', () => {
-  test.skip('It should return the string with the characters in reverse order', () => {
+  test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
 });
 
 describe('Testing challenge 4', () => {
-  test.skip('It should return the total number of children', () => {
+  test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
