@@ -56,13 +56,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 const divisibleByFiveTwoToThePower = (input) => {
   let result = input.reduce ( (newArr, numberSet) => {
     let divByFive = numberSet.filter( value => {
-      if (typeOf value !== 'string' && value % 5 === 0){
+      if ( value % 5 === 0 && typeof value === 'number') {
         return value
       }
       });
     newArr.push(divByFive.map( val => 2 ** val));
     return newArr;
-  }, []);
+  }, [])
   return result;
 };
 
@@ -129,7 +129,14 @@ let starWarsData = [{
 }]
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let regex = /[,]/g;
+  let characterArr = data.reduce( (nameArr, character) => {
+    if( character.gender === 'male' || character.gender === 'female') {
+      nameArr.push(character.name)
+    }
+    return nameArr;
+  }, []);
+  return characterArr.toString().replace(regex, ' and ');
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -188,14 +195,14 @@ describe('Testing challenge 3', () => {
 });
 
 describe('Testing challenge 4', () => {
-  test.skip('It should return only characters that are male or female', () => {
+  test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
   });
 });
 
 describe('Testing challenge 5', () => {
-  test.skip('It should return the name of the shortest character', () => {
+  test('It should return the name of the shortest character', () => {
     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
   });
 });
