@@ -89,7 +89,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach( item => {
+    if(item.includes(target)){
+    newArr.push(item);
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +105,10 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  function isHere(str){
+    return str.includes(target);
+  }
+  return arr.every(isHere);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -218,7 +227,7 @@ describe('Testing challenge 5', () => {
 });
 
 describe('Testing challenge 6', () => {
-  test.skip('It should find all the strings that contain a given string', () => {
+  test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
     expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
@@ -227,7 +236,7 @@ describe('Testing challenge 6', () => {
 });
 
 describe('Testing challenge 7', () => {
-  test.skip('It should determine whether all the strings contain a given string', () => {
+  test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
     expect(findEvery(words, 'a')).toStrictEqual(false);
