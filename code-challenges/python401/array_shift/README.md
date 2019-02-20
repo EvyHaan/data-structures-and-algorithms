@@ -9,4 +9,4 @@ Big O:
     space: O(n)
 
 ## Solution
-![shift_array](insert link here)
+![shift_array](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/array_shift/assets/array_shift.jpg)
