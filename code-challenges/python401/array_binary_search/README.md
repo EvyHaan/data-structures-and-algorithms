@@ -9,4 +9,5 @@ Big 0 -- Time: O(logN) -- Space: O(N)
 In this approach, the function compares the value of the middle position of the array to the target. If it matches, the index is returned. Otherwise it adjusts the left or right bounds of the search area to eliminate sections of the array that logically would not contain the element until the element is either found or determined to not to be in the given array.
 
 ## Solution
-![binary_search](img link here)
+![binary_search](Evy Haan [3:37 PM]
+https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/array_binary_search/assets/binary_search.jpg)
