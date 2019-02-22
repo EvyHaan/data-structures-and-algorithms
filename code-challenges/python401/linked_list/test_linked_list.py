@@ -79,5 +79,5 @@ def test_print():
     """Can return an empty string if the linked list is empty
     """
     fruits = LinkedList()
-    
+
     assert fruits.print() == ''
