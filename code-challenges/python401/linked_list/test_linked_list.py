@@ -74,10 +74,10 @@ def test_print():
     fruits.ll_insert('bananas')
     fruits.ll_insert('dates')
 
-    assert fruits.ll_print() == 'apples,bananas,dates,'
+    assert fruits.ll_print() == '- apples -- bananas -- dates -'
 
 
-def test_print():
+def test_print_empty_ll():
     """Can return an empty string if the linked list is empty
     """
     fruits = LinkedList()
@@ -86,7 +86,8 @@ def test_print():
 
 
 def test_no_value():
+    """Will return a message if a value is not provided.
+    """
     fruits = LinkedList()
-    fruits.ll_insert('')
 
-    assert fruits.
+    assert fruits.ll_insert('') == 'Node needs a value'
