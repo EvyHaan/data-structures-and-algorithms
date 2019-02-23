@@ -1,22 +1,34 @@
+"""This module defines defines operations for a singly linked lists.
+"""
+
+
 class LinkedList:
+    """A class that instantiates a new linked lists
+    """
 
     head = None
 
-    def insert(self, value):
-
+    def ll_insert(self, value):
+        """Function to insert a new node into a singly linked list
+        """
         node = Node(value)
-        if not self.head:            # if empty linked list
+
+        if value == '':
+            return('Node needs a value')
+
+        if not self.head:
             self.head = node
         else:
             current = self.head
 
-            while current._next:     # while current.next is truthy (exists)
+            while current._next:
                 current = current._next
 
             current._next = node
 
-    def includes(self, value):
-
+    def ll_includes(self, value):
+        """Function to search for a value in a linked list
+        """
         current = self.head
 
         while current:
@@ -27,19 +39,22 @@ class LinkedList:
 
         return False
 
-    def print(self):
-
-        output = ''
+    def ll_print(self):
+        """Function to print the values of the linked list
+        """
+        result = ''
         current = self.head
 
         while current:
-            output += current.value + ','
+            result += '- ' + current.value + ' -'
             current = current._next
 
-        return output
+        return(result)
 
 
 class Node():
+    """The node class instantiates a new node.
+    """
     def __init__(self, value):
         self.value = value
         self._next = None

@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/home/evyhaan/.local/share/virtualenvs/python401-VhRsf5Zs/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.linting.enabled": true
+}
