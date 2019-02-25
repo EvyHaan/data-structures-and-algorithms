@@ -12,7 +12,7 @@ def test_instantiation():
     """
     assert LinkedList()
 
-
+# WRITE NEW TESTS FOR INSERT AT BEGINNING
 def test_insert():
     """Can properly insert into the linked list
     The head property will properly point to the first node in the linked list
@@ -91,3 +91,50 @@ def test_no_value():
     fruits = LinkedList()
 
     assert fruits.ll_insert('') == 'Node needs a value'
+
+
+def test_append():
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+
+    expected = 'apples'
+    actual = fruits.head.value
+
+    assert expected == actual
+
+
+def test_append_two():
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+
+    expected = 'apples'
+    actual = fruits.head.value
+
+    assert expected == actual
+
+    expected = 'bananas'
+    actual = fruits.head._next.value
+
+    assert expected == actual
+
+
+def test_insert_before():
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+    fruits.ll_insert('pears')
+
+    fruits.ll_insert_before('pears', 'figs')
+
+    assert fruits.ll_print() == '- apples -- bananas -- figs -- pears -'
+
+
+def test_insert_after():
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+    fruits.ll_insert('pears')
+    fruits.ll_insert_after('bananas', 'figs')
+
+    assert fruits.ll_print() == '- apples -- bananas -- figs -- pears -'

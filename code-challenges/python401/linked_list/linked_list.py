@@ -8,6 +8,7 @@ class LinkedList:
 
     head = None
 
+    # WRITE NEW FUNCTION FOR INSERT AT BEGINNING
     def ll_insert(self, value):
         """Function to insert a new node into a singly linked list
         """
@@ -50,6 +51,56 @@ class LinkedList:
             current = current._next
 
         return(result)
+    
+    def ll_append(self, value):
+        """Function to insert a new node into a singly linked list
+        """
+        node = Node(value)
+
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+
+            while current._next:
+                current = current._next
+
+            current._next = node
+    
+    def ll_insert_before(self, value, new_value):
+
+        node = Node(new_value)
+
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+
+        while current._next:
+            if current._next.value == value:
+                node._next = current._next
+                current._next = node
+                break
+            else:
+                current = current._next
+        
+    def ll_insert_after(self, value, new_value):
+
+        node = Node(new_value)
+
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+        
+        while current._next:
+            if current._next.value == value:
+                node._next = current._next._next
+                current = current._next
+                current._next = node
+                break
+            else:
+                current = current._next
 
 
 class Node():
