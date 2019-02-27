@@ -51,7 +51,7 @@ class LinkedList:
             current = current._next
 
         return(result)
-    
+
     def ll_append(self, value):
         """Function to insert a new node into a singly linked list
         """
@@ -66,9 +66,10 @@ class LinkedList:
                 current = current._next
 
             current._next = node
-    
-    def ll_insert_before(self, value, new_value):
 
+    def ll_insert_before(self, value, new_value):
+        """Function to insert a new node into a singly linked list before a given value
+        """
         node = Node(new_value)
 
         if not self.head:
@@ -83,16 +84,17 @@ class LinkedList:
                 break
             else:
                 current = current._next
-        
-    def ll_insert_after(self, value, new_value):
 
+    def ll_insert_after(self, value, new_value):
+        """Function to insert a new node into a singly linked list after a given value
+        """
         node = Node(new_value)
 
         if not self.head:
             self.head = node
         else:
             current = self.head
-        
+
         while current._next:
             if current._next.value == value:
                 node._next = current._next._next
@@ -102,10 +104,39 @@ class LinkedList:
             else:
                 current = current._next
 
+    def ll_k_from_end(self, k):
+        """Function to find a value of a node at the kth position from the end.
+        """
+        total_nodes = 0
+        position = 0
+        current = self.head
+
+        while current and current._next:
+            total_nodes += 1
+            current = current._next
+
+        if current and not current._next:
+            total_nodes += 1
+        else:
+            return 'empty linked list'
+
+        if k < total_nodes:
+            position = total_nodes - k
+        else:
+            return 'Exception'
+
+        current = self.head
+
+        for i in range(1, position):
+            current = current._next
+
+        return current.value
+
 
 class Node():
     """The node class instantiates a new node.
     """
+
     def __init__(self, value):
         self.value = value
         self._next = None
