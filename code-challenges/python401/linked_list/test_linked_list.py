@@ -94,6 +94,8 @@ def test_no_value():
 
 
 def test_append():
+    """Can return append a new node to the end of a linked list
+    """
     fruits = LinkedList()
     fruits.ll_insert('apples')
 
@@ -104,6 +106,8 @@ def test_append():
 
 
 def test_append_two():
+    """Can append two nodes to the end of a linked list
+    """
     fruits = LinkedList()
     fruits.ll_insert('apples')
     fruits.ll_insert('bananas')
@@ -120,6 +124,8 @@ def test_append_two():
 
 
 def test_insert_before():
+    """Can insert a new node before a given value
+    """
     fruits = LinkedList()
     fruits.ll_insert('apples')
     fruits.ll_insert('bananas')
@@ -131,10 +137,52 @@ def test_insert_before():
 
 
 def test_insert_after():
+    """Can insert a node after a given value
+    """
     fruits = LinkedList()
     fruits.ll_insert('apples')
     fruits.ll_insert('bananas')
     fruits.ll_insert('pears')
     fruits.ll_insert_after('bananas', 'figs')
 
-    assert fruits.ll_print() == '- apples -- bananas -- figs -- pears -'
+
+def test_k_from_end():
+    """Can return the value of a node at the kth position from the end of a linked list
+    """
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+    fruits.ll_insert('pears')
+    fruits.ll_insert('figs')
+    fruits.ll_insert('oranges')
+    k = 2
+
+    expected = 'pears'
+    actual = fruits.ll_k_from_end(k)
+
+    assert expected == actual
+
+
+def test_k_empty_ll():
+    """Will return a message if the linked list is empty
+    """
+    fruits = LinkedList()
+    k = 3
+
+    expected = 'empty linked list'
+    actual = fruits.ll_k_from_end(k)
+
+    assert expected == actual
+
+
+def test_k_larger_than_ll():
+    """Will return a message if the give kth position is larger than the length of the linked list
+    """
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+    fruits.ll_insert('pears')
+    fruits.ll_insert('figs')
+    fruits.ll_insert('oranges')
+
+    assert fruits.ll_k_from_end(6) == 'Exception'
