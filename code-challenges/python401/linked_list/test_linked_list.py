@@ -241,17 +241,17 @@ def test_ll_merge_both_empty_lists():
 #     assert expected == actual
 
 
-def test_ll_merge_one_empty():
-    """
-    """
-    fruits = LinkedList()
-    fruits.ll_insert('apples')
-    fruits.ll_insert('bananas')
-    fruits.ll_insert('pears')
+# def test_ll_merge_one_empty():
+#     """
+#     """
+#     fruits = LinkedList()
+#     fruits.ll_insert('apples')
+#     fruits.ll_insert('bananas')
+#     fruits.ll_insert('pears')
 
-    vegetables = LinkedList()
+#     vegetables = LinkedList()
 
-    expected = fruits.head
-    actual = fruits.ll_merge(vegetables)
+#     expected = fruits.head
+#     actual = fruits.ll_merge(vegetables)
 
-    assert expected == actual
+#     assert expected == actual

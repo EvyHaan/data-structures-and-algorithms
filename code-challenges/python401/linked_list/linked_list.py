@@ -159,13 +159,13 @@ class LinkedList:
                 curr1._next = curr2
                 curr2 = ref2
                 curr1 = ref1
-                if not curr1._next or not curr2._next:
-                    break
+                # if not curr1._next or not curr2._next:
+                #     break
 
             if curr1._next:
-                curr2._next = curr1
+                curr2._next = ref1
             else:
-                curr1._next = curr2
+                curr1._next = ref2
 
         else:
             head1 = None
