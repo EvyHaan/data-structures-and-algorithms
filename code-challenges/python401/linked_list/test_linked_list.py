@@ -186,3 +186,72 @@ def test_k_larger_than_ll():
     fruits.ll_insert('oranges')
 
     assert fruits.ll_k_from_end(6) == 'Exception'
+
+
+def test_ll_merge_same_length():
+    """
+    """
+    fruits = LinkedList()
+    fruits.ll_insert('apples')
+    fruits.ll_insert('bananas')
+    fruits.ll_insert('pears')
+    fruits.ll_insert('figs')
+    fruits.ll_insert('oranges')
+
+    vegetables = LinkedList()
+    vegetables.ll_insert('cucumers')
+    vegetables.ll_insert('tomatos')
+    vegetables.ll_insert('olives')
+    vegetables.ll_insert('potatos')
+    vegetables.ll_insert('cabbages')
+
+    expected = fruits.head
+    actual = fruits.ll_merge(vegetables)
+
+    assert expected == actual
+
+
+def test_ll_merge_both_empty_lists():
+    """
+    """
+    fruits = LinkedList()
+    vegetables = LinkedList()
+
+    expected = fruits.head
+    actual = fruits.ll_merge(vegetables)
+
+    assert expected == actual
+
+
+# def test_ll_merge_different_lengths():
+#     """
+#     """
+#     fruits = LinkedList()
+#     fruits.ll_insert('apples')
+#     fruits.ll_insert('bananas')
+#     fruits.ll_insert('pears')
+
+#     vegetables = LinkedList()
+#     vegetables.ll_insert('cucumers')
+#     vegetables.ll_insert('tomatos')
+
+#     expected = fruits.head
+#     actual = fruits.ll_merge(vegetables)
+
+#     assert expected == actual
+
+
+# def test_ll_merge_one_empty():
+#     """
+#     """
+#     fruits = LinkedList()
+#     fruits.ll_insert('apples')
+#     fruits.ll_insert('bananas')
+#     fruits.ll_insert('pears')
+
+#     vegetables = LinkedList()
+
+#     expected = fruits.head
+#     actual = fruits.ll_merge(vegetables)
+
+#     assert expected == actual
