@@ -21,11 +21,9 @@ class LinkedList:
             self.head = node
         else:
             current = self.head
+            node._next = current
+            self.head = node
 
-            while current._next:
-                current = current._next
-
-            current._next = node
 
     def ll_includes(self, value):
         """Function to search for a value in a linked list

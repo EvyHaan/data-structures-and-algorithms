@@ -17,11 +17,8 @@ class LinkedList:
             self.head = node
         else:
             current = self.head
-
-            while current._next:
-                current = current._next
-
-            current._next = node
+            node._next = current
+            self.head = node
 
     def ll_includes(self, value):
         """Function to search for a value in a linked list
@@ -167,7 +164,7 @@ class LinkedList:
             head1 = None
         
         return head1
-        
+ 
 
 class Node():
     """The node class instantiates a new node.
@@ -182,5 +179,5 @@ class Stack():
     _list = LinkedList()
     top = _list.head
 
-    def insert_to_top():
-        
+    def insert_to_top(self, value):
+        _list.ll_insert()
