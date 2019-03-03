@@ -162,9 +162,113 @@ class LinkedList:
 
         else:
             head1 = None
-        
+
         return head1
- 
+
+# class Stack():
+#     """
+#     """
+#     _list = LinkedList()
+#     top = None
+
+#     def push(self, value):
+#         """Pushes a node onto a Stack
+#         """
+#         Stack._list(value)
+#         top = _list.head
+
+
+class Stack:
+
+    top = None
+
+    def peek():
+        """
+        """
+        top = self.top
+
+        return top
+
+    def push(self, value):
+        """
+        """
+        node = Node(value)
+
+        if not self.top:
+            self.top = node
+        else:
+            current = self.top
+            node._next = current
+            self.top = node
+
+    def pop(self):
+        """
+        """
+        top = self.top
+
+        if not top:
+            return "The stack is empty"
+        else:
+            temp = top
+            top = top._next
+            temp._next = None
+
+        return temp.value
+
+    def pop_all(self):
+        """
+        """
+        top = self.top
+
+        if not top:
+            return "The stack is empty"
+        else:
+            while top:
+                temp = top
+                top = top._next
+                temp._next = None
+        
+        return temp.value
+
+
+class Queue:
+
+    front = None
+    rear = None
+
+    def enqueue(self, value):
+        """
+        """
+        node = Node(value)
+        front = self.front
+
+        if not front:
+            front = node
+            self.rear = node
+        else:
+            current = front
+            while current._next:
+                current = current._next
+
+            current._next = node
+            self.rear = current._next
+
+    # def dequeue(self):
+    #     """
+    #     """
+    #     front = self.front
+
+    #     if not front:
+    #         return 'Queue is empty'
+    #     else:
+    #         temp = self.front
+    #         front = temp._next
+    #         temp._next = None
+        
+    #     return temp.value
+            
+
+
 
 class Node():
     """The node class instantiates a new node.
@@ -173,11 +277,3 @@ class Node():
     def __init__(self, value):
         self.value = value
         self._next = None
-
-
-class Stack():
-    _list = LinkedList()
-    top = _list.head
-
-    def insert_to_top(self, value):
-        _list.ll_insert()
