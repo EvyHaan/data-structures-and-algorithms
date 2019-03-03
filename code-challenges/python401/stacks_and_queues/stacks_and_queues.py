@@ -240,34 +240,31 @@ class Queue:
         """
         """
         node = Node(value)
-        front = self.front
 
-        if not front:
-            front = node
+        if not self.front:
+            self.head = node
             self.rear = node
         else:
-            current = front
+            current = self.front
             while current._next:
                 current = current._next
 
             current._next = node
             self.rear = current._next
 
-    # def dequeue(self):
-    #     """
-    #     """
-    #     front = self.front
 
-    #     if not front:
-    #         return 'Queue is empty'
-    #     else:
-    #         temp = self.front
-    #         front = temp._next
-    #         temp._next = None
+    def dequeue(self):
+        """
+        """
+
+        if not self.front:
+            return 'Queue is empty'
+        else:
+            temp = self.front
+            self.front = temp._next
+            temp._next = None
         
-    #     return temp.value
-            
-
+        return temp.value
 
 
 class Node():

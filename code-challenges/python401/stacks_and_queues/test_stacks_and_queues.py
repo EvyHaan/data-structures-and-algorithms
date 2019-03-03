@@ -129,15 +129,16 @@ def test_enqueue_two():
     assert line.rear.value == 'Jim'
 
 
-# def test_one_dequeue():
-#     """Can successfully dequeue an item.
-#     """
-#     line = Queue()
-#     line.enqueue('Pam')
-#     line.enqueue('Jim')
-#     line.enqueue('Dwight')
 
-#     expected = 'Pam'
-#     actual = line.dequeue()
+def test_one_dequeue():
+    """Can successfully dequeue an item.
+    """
+    line = Queue()
+    line.enqueue('Pam')
+    line.enqueue('Jim')
+    line.enqueue('Dwight')
 
-#     assert expected == actual
+    expected = 'Pam'
+    actual = line.dequeue()
+
+    assert expected == actual
