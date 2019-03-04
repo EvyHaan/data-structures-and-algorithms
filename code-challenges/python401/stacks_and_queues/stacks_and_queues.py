@@ -242,7 +242,7 @@ class Queue:
         node = Node(value)
 
         if not self.front:
-            self.head = node
+            self.front = node
             self.rear = node
         else:
             current = self.front
