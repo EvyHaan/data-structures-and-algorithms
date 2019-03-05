@@ -47,10 +47,15 @@ class Stack:
                 temp = top
                 top = top._next
                 temp._next = None
-        
+
         return temp.value
 
 
 class Pseudo_Queue:
     _in_stack = Stack()
     _out_stack = Stack()
+
+    def enqueue():
+        """
+        """
+        
