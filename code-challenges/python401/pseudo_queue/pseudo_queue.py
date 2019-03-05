@@ -1,8 +1,8 @@
 class Stack:
+    def __init__(self):
+        self.top = None
 
-    top = None
-
-    def peek():
+    def peek(self):
         """
         """
         top = self.top
@@ -30,7 +30,7 @@ class Stack:
             return "The stack is empty"
         else:
             temp = top
-            top = top._next
+            self.top = top._next
             temp._next = None
 
         return temp.value
@@ -51,11 +51,38 @@ class Stack:
         return temp.value
 
 
-class Pseudo_Queue:
-    _in_stack = Stack()
-    _out_stack = Stack()
+class Node():
+    """The node class instantiates a new node.
+    """
 
-    def enqueue():
+    def __init__(self, value):
+        self.value = value
+        self._next = None
+
+
+class Pseudo_Queue:
+
+    def __init__(self):
+        self._in_stack = Stack()
+        self._out_stack = Stack()
+
+    def enqueue(self, value):
         """
         """
-        
+        self._in_stack.push(value)
+
+    def dequeue(self):
+        """
+        """
+        if self._out_stack.top:
+            return self._out_stack.pop()
+        else:
+            if self._in_stack.top:
+                while self._in_stack.top:
+                    value = self._in_stack.pop()
+                    print(value)
+                    self._out_stack.push(value)
+                return self._out_stack.pop()
+            else:
+                return 'no items in pseudo queue'
+
