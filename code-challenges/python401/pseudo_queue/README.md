@@ -1,4 +1,4 @@
-# Singly Linked List
+# Pseudo Queue
 
 
 ## Challenge
