@@ -180,3 +180,4 @@ def test_postorder():
     tree.add('E')
 
     assert tree.postorder() == ['A', 'C', 'B', 'E', 'F', 'D']
+
