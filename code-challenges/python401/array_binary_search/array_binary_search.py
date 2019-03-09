@@ -23,5 +23,5 @@ def binary_search(arr, target):
             l_bound = mid + 1
         else:
             return(mid)
-        
+
         return(-1)
