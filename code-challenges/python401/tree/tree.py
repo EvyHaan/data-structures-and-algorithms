@@ -1,7 +1,5 @@
 class Node():
-    """The node class instantiates a new node.
-    """
-
+    """The node class instantiates a new node."""
     def __init__(self, value):
         self.value = value
         self.left_child = None
@@ -9,10 +7,12 @@ class Node():
 
 
 class BinaryTree():
+    """The BinaryTree class instantiates a new binary tree with traversal methods."""
     def __init__(self):
         self.root = None
 
     def preorder(self, current=None):
+        """Function to return binary tree in preorder as an array"""
 
         pre_order_list = []
 
@@ -33,7 +33,7 @@ class BinaryTree():
         return pre_order_list
 
     def inorder(self, current=None):
-
+        """Function to return binary tree in inorder as an array"""
         in_order_list = []
 
         if not self.root:
@@ -53,7 +53,7 @@ class BinaryTree():
         return in_order_list
 
     def postorder(self, current=None):
-
+        """Function to return binary tree in postorder as an array"""
         post_order_list = []
 
         if not self.root:
@@ -74,12 +74,13 @@ class BinaryTree():
 
 
 class BinarySearchTree(BinaryTree):
-
+    """The BinarySearchTree class instantiates a new binary tree with methods to add and search for values."""
     def add(self, value):
         node = Node(value)
         self._add_node(node)
 
     def _add_node(self, node, current=None):
+        """Function to add a node to a binary search tree"""
         if self.root is None:
             self.root = node
 
@@ -100,7 +101,7 @@ class BinarySearchTree(BinaryTree):
                     self._add_node(node, current.right_child)
 
     def _contains(self, value):
-
+        """Function that returns a boolean if a value can be found in a binary tree"""
         current = self.root
 
         if self.root is None:
