@@ -24,7 +24,6 @@ class LinkedList:
             node._next = current
             self.head = node
 
-
     def ll_includes(self, value):
         """Function to search for a value in a linked list
         """
@@ -131,45 +130,88 @@ class LinkedList:
         return current.value
 
     def ll_merge(self, list2):
+        head1 = self.head
+        head2 = self.head
 
-        if not self.head:
-            if list2.head:
-                head1 = list2.head
-            else:
-                head1 = None
-        else:
-            head1 = self.head
-            if list2.head:
-                head2 = list2.head
-            else:
-                head2 = list2.head
-
+        if not head1 and not head2:
+            return 'empty linked list'
+        
+        if head1 and not head2:
+            return head1
+        
+        if not head1 and head2:
+            return head2
+        
         if head1 and head2:
             curr1 = head1
             curr2 = head2
-            ref1 = head1
-            ref2 = head2
 
-            while curr1._next or curr2._next:
+            while curr1._next is not None and curr2._next is not None:
                 ref1 = curr1._next
                 ref2 = curr2._next
-                curr2._next = ref1
+
                 curr1._next = curr2
-                curr2 = ref2
-                curr1 = ref1
-                # if not curr1._next or not curr2._next:
-                #     break
-
-            if curr1._next:
                 curr2._next = ref1
-            else:
-                curr1._next = ref2
 
-        else:
-            head1 = None
-        
-        return head1
-        
+                curr1 = ref1
+                curr2 = ref2
+
+            if curr1._next is None and curr2:
+                curr1._next = curr2
+                return head1
+            if curr2._next is None and curr1:
+                ref1 = curr1._next
+                curr1.next = curr2
+                curr2.next = ref1
+                return head1
+
+
+
+
+
+
+
+
+
+
+    #     if not self.head:
+    #         if list2.head:
+    #             head1 = list2.head
+    #         else:
+    #             head1 = None
+    #     else:
+    #         head1 = self.head
+    #         if list2.head:
+    #             head2 = list2.head
+    #         else:
+    #             head2 = list2.head
+
+    #     if head1 and head2:
+    #         curr1 = head1
+    #         curr2 = head2
+    #         ref1 = head1
+    #         ref2 = head2
+
+    #         while curr1._next or curr2._next:
+    #             ref1 = curr1._next
+    #             ref2 = curr2._next
+    #             curr2._next = ref1
+    #             curr1._next = curr2
+    #             curr2 = ref2
+    #             curr1 = ref1
+    #             # if not curr1._next or not curr2._next:
+    #             #     break
+
+    #         if curr1._next:
+    #             curr2._next = ref1
+    #         else:
+    #             curr1._next = ref2
+
+    #     else:
+    #         head1 = None
+
+    #     return head1
+
 
 class Node():
     """The node class instantiates a new node.
