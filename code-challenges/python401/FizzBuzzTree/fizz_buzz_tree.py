@@ -124,7 +124,7 @@ class BinarySearchTree(BinaryTree):
 
         current = self.root
 
-        if current.left_child is not None:
+        while current.left_child:
             self.fizz_buzz_tree(current.left_child)
 
         if current.value % 3 == 0 and current.value % 5 == 0:
@@ -134,7 +134,7 @@ class BinarySearchTree(BinaryTree):
         if current.value % 5 == 0:
             current.value = 'Buzz'
 
-        if current.right_child is not None:
+        while current.right_child:
             self.fizz_buzz_tree(current.right_child)
 
         return in_order_list
