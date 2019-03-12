@@ -135,13 +135,13 @@ class LinkedList:
 
         if not head1 and not head2:
             return 'empty linked list'
-        
+
         if head1 and not head2:
             return head1
-        
+
         if not head1 and head2:
             return head2
-        
+
         if head1 and head2:
             curr1 = head1
             curr2 = head2
@@ -164,15 +164,6 @@ class LinkedList:
                 curr1.next = curr2
                 curr2.next = ref1
                 return head1
-
-
-
-
-
-
-
-
-
 
     #     if not self.head:
     #         if list2.head:
