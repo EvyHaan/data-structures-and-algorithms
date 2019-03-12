@@ -119,3 +119,22 @@ class BinarySearchTree(BinaryTree):
                 return False
 
         return True
+
+    def fizz_buzz_tree(self, current=None):
+
+        current = self.root
+
+        if current.left_child is not None:
+            self.fizz_buzz_tree(current.left_child)
+
+        if current.value % 3 == 0 and current.value % 5 == 0:
+            current.value = 'FizzBuzz'
+        if current.value % 3 == 0:
+            current.value = 'Fizz'
+        if current.value % 5 == 0:
+            current.value = 'Buzz'
+
+        if current.right_child is not None:
+            self.fizz_buzz_tree(current.right_child)
+
+        return in_order_list
