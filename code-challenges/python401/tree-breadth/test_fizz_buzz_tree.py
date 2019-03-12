@@ -1,3 +1,5 @@
+from breadth_first import breadth_first
+from support_items import Queue
 from fizz_buzz_tree import BinarySearchTree
 
 
@@ -15,6 +17,7 @@ def test_fizzbuzztree():
     tree.add(11)
     tree.fizz_buzz_tree()
 
+    print(breadth_first(tree))
     assert tree.root.value == 'Fizz'
 
     # ['Fizz', 'Buzz', 7, 'Buzz', 11, 'FizzBuzz']

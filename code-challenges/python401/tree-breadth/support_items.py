@@ -1,10 +1,73 @@
-class Node():
-    """The node class instantiates a new node."""
+class Tode():
+    """"""
 
     def __init__(self, value):
         self.value = value
         self.left_child = None
         self.right_child = None
+
+    def __repr__(self):
+        return 'Tode with value: {}'.format(self.value)
+
+
+class Quode():
+    """The node class instantiates a new node.
+    """
+
+    def __init__(self, value):
+        self.value = value
+        self._next = None
+
+    def __repr__(self):
+        return 'Quode with value: {}'.format(self.value)
+
+
+class Queue:
+
+    front = None
+    rear = None
+
+    def enqueue(self, value):
+        """
+        """
+        node = Quode(value)
+
+        if not self.front:
+            self.front = node
+            self.rear = node
+        else:
+            current = self.front
+            while current._next:
+                current = current._next
+
+            current._next = node
+            self.rear = current._next
+
+    def dequeue(self):
+        """
+        """
+
+        if not self.front:
+            return 'Queue is empty'
+        else:
+            temp = self.front
+            self.front = temp._next
+            temp._next = None
+
+        return temp.value
+
+    def peek(self):
+
+        front = self.front
+
+        return front
+
+    def __repr__(self):
+        lst = []
+        temp_q = self
+        while temp_q.front:
+            lst.append(temp_q.dequeue())
+        return 'Queue: {}'.format(lst[::-1])
 
 
 class BinaryTree():
@@ -79,7 +142,7 @@ class BinarySearchTree(BinaryTree):
     """The BinarySearchTree class instantiates a new binary tree with methods to add and search for values."""
 
     def add(self, value):
-        node = Node(value)
+        node = Tode(value)
         self._add_node(node)
 
     def _add_node(self, node, current=None):
@@ -119,22 +182,3 @@ class BinarySearchTree(BinaryTree):
                 return False
 
         return True
-
-    def fizz_buzz_tree(self, current=None):
-
-        current = self.root
-
-        while current.left_child:
-            self.fizz_buzz_tree(current.left_child)
-
-        if current.value % 3 == 0 and current.value % 5 == 0:
-            current.value = 'FizzBuzz'
-        if current.value % 3 == 0:
-            current.value = 'Fizz'
-        if current.value % 5 == 0:
-            current.value = 'Buzz'
-
-        while current.right_child:
-            self.fizz_buzz_tree(current.right_child)
-
-        return in_order_list
