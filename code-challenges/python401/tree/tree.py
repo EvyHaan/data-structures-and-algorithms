@@ -1,4 +1,5 @@
-from support_items import Queue
+from support_items import Queue, Stack
+import math
 
 
 class Node():
@@ -77,7 +78,7 @@ class BinaryTree():
 
         return post_order_list
 
-    def breadth_first(self, current=Node):
+    def breadth_first(self, current=None):
         breadth_queue = Queue()
         lst = []
 
@@ -98,6 +99,30 @@ class BinaryTree():
             lst.append(current.value)
 
         return lst
+
+    def pre_order_max(self, current=None, max_so_far=None):
+
+        if not self.root:
+            return None
+
+        if not current:
+            current = self.root
+            max_so_far = current.value
+
+        max_so_far = max(current.value, max_so_far)
+
+        if current.left_child is not None:
+            max_from_child = self.pre_order_max(current.left_child, max_so_far)
+            max_so_far = max(max_from_child, max_so_far)
+
+        if current.right_child is not None:
+            max_from_child = self.pre_order_max(current.right_child, max_so_far)
+            max_so_far = max(max_from_child, max_so_far)
+
+        return max_so_far
+
+    def find_max_value(self):
+        return self.pre_order_max()
 
 
 class BinarySearchTree(BinaryTree):
