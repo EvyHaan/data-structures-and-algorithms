@@ -1,4 +1,5 @@
 from tree import Node, BinaryTree, BinarySearchTree
+from support_items import Queue
 
 # ====== Binary Search Tree tests ======
 
@@ -184,3 +185,33 @@ def test_postorder():
     tree.add('E')
 
     assert tree.postorder() == ['A', 'C', 'B', 'E', 'F', 'D']
+
+def test_breadth_traversal():
+    tree = BinarySearchTree()
+    queue = Queue()
+    tree.add(5)
+    tree.add(4)
+    tree.add(10)
+    tree.add(2)
+
+    assert tree.breadth_first(tree) == [5, 4, 10, 2]
+    assert tree.breadth_first(tree) != [5, 4, 10, 3]
+
+
+def test_class_exists():
+    assert BinarySearchTree
+
+
+def test_fizzbuzztree():
+    tree = BinarySearchTree()
+    tree.add(10)
+    tree.add(5)
+    tree.add(3)
+    tree.add(7)
+    tree.add(15)
+    tree.add(11)
+    tree.fizz_buzz_tree()
+
+    assert tree.root.value == 'Buzz'
+
+    # Should Be: ['Fizz', 'Buzz', 7, 'Buzz', 11, 'FizzBuzz']
