@@ -1,3 +1,6 @@
+from support_items import Queue
+
+
 class Node():
     """The node class instantiates a new node."""
 
@@ -74,6 +77,28 @@ class BinaryTree():
 
         return post_order_list
 
+    def breadth_first(self, current=Node):
+        breadth_queue = Queue()
+        lst = []
+
+        if not current:
+            current = self.root
+
+        breadth_queue.enqueue(self.root)
+
+        while breadth_queue.peek():
+            current = breadth_queue.dequeue()
+
+            if current.left_child:
+                breadth_queue.enqueue(current.left_child)
+
+            if current.right_child:
+                breadth_queue.enqueue(current.right_child)
+
+            lst.append(current.value)
+
+        return lst
+
 
 class BinarySearchTree(BinaryTree):
     """The BinarySearchTree class instantiates a new binary tree with methods to add and search for values."""
@@ -119,3 +144,23 @@ class BinarySearchTree(BinaryTree):
                 return False
 
         return True
+
+    def fizz_buzz_tree(self, current=None):
+
+        if not current:
+            current = self.root
+
+        if current.left_child:
+            self.fizz_buzz_tree(current.left_child)
+        if isinstance(current.value, int):
+            if current.value % 3 == 0 and current.value % 5 == 0:
+                current.value = 'FizzBuzz'
+            elif current.value % 3 == 0:
+                current.value = 'Fizz'
+            elif current.value % 5 == 0:
+                current.value = 'Buzz'
+
+        if current.right_child:
+            self.fizz_buzz_tree(current.right_child)
+
+        return self
