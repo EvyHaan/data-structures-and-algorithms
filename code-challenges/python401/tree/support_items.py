@@ -70,6 +70,59 @@ class Queue:
         return 'Queue: {}'.format(lst[::-1])
 
 
+class Stack:
+
+    top = None
+
+    def peek(self):
+        """
+        """
+        top = self.top
+
+        return top
+
+    def push(self, value):
+        """
+        """
+        node = Quode(value)
+
+        if not self.top:
+            self.top = node
+        else:
+            current = self.top
+            node._next = current
+            self.top = node
+
+    def pop(self):
+        """
+        """
+        top = self.top
+
+        if not top:
+            return "The stack is empty"
+        else:
+            temp = top
+            top = top._next
+            temp._next = None
+
+        return temp.value
+
+    def pop_all(self):
+        """
+        """
+        top = self.top
+
+        if not top:
+            return "The stack is empty"
+        else:
+            while top:
+                temp = top
+                top = top._next
+                temp._next = None
+        
+        return temp.value
+
+
 class BinaryTree():
     """The BinaryTree class instantiates a new binary tree with traversal methods."""
 

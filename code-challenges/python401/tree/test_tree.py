@@ -1,5 +1,5 @@
 from tree import Node, BinaryTree, BinarySearchTree
-from support_items import Queue
+from support_items import Queue, Stack
 
 # ====== Binary Search Tree tests ======
 
@@ -186,6 +186,7 @@ def test_postorder():
 
     assert tree.postorder() == ['A', 'C', 'B', 'E', 'F', 'D']
 
+
 def test_breadth_traversal():
     tree = BinarySearchTree()
     queue = Queue()
@@ -215,3 +216,28 @@ def test_fizzbuzztree():
     assert tree.root.value == 'Buzz'
 
     # Should Be: ['Fizz', 'Buzz', 7, 'Buzz', 11, 'FizzBuzz']
+
+
+def test_find_max_value_one_node_tree():
+    tree = BinarySearchTree()
+    tree.add(10)
+
+    assert tree.find_max_value() == 10
+
+
+def test_find_max_value_empty_tree():
+    tree = BinarySearchTree()
+
+    assert tree.find_max_value() == None
+
+
+def test_find_max_value():
+    tree = BinarySearchTree()
+    tree.add(10)
+    tree.add(5)
+    tree.add(3)
+    tree.add(7)
+    tree.add(15)
+    tree.add(11)
+
+    assert tree.find_max_value() == 15
