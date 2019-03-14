@@ -218,6 +218,19 @@ def test_fizzbuzztree():
     # Should Be: ['Fizz', 'Buzz', 7, 'Buzz', 11, 'FizzBuzz']
 
 
+def test_find_max_value_one_node_tree():
+    tree = BinarySearchTree()
+    tree.add(10)
+
+    assert tree.find_max_value() == 10
+
+
+def test_find_max_value_empty_tree():
+    tree = BinarySearchTree()
+
+    assert tree.find_max_value() == None
+
+
 def test_find_max_value():
     tree = BinarySearchTree()
     tree.add(10)
