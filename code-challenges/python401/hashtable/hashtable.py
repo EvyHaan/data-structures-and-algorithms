@@ -13,7 +13,6 @@ class LinkedList:
 
     head = None
 
-    # WRITE NEW FUNCTION FOR INSERT AT BEGINNING
     def ll_insert(self, value):
         """Function to insert a new node into a singly linked list
         """
@@ -172,10 +171,19 @@ class LinkedList:
 
 
 class Hashtable:
+    """Creates a Hashtable class."""
+
     def __init__(self):
+        """Instantiates a hashtable with a table attribute."""
         self.table = [None] * 1024
 
     def hash(self, key):
+        """Hashes a key to determine an index for storage.
+
+        Parameters:
+        key : any type
+            A key to be used in a key-value pair. All inputs are stringified.
+        """
         stringified_key = str(key)
         ascii_sum = 0
         for c in stringified_key:
@@ -184,16 +192,28 @@ class Hashtable:
         return bucket_number
 
     def add(self, key, value):
+        """Stores a key-value pair in the hashtable.
+
+        Parameters:
+        key : any type
+            A key to be used in a key-value pair.
+        value : any type
+            A key's value.
+        """
         idx = self.hash(key)
 
         if not self.table[idx]:
-            # bucket = LinkedList()
             self.table[idx] = LinkedList()
 
         self.table[idx].ll_insert((key, value))
-        print(self.table[idx].head.value)
 
     def get(self, key):
+        """Retreives a value whos key matches the input.
+
+        Parameters:
+        key : any type
+            The key of a key-value pair to be searched for.
+        """
         idx = self.hash(key)
 
         if not self.table[idx]:
@@ -207,6 +227,12 @@ class Hashtable:
         return None
 
     def contains(self, key):
+        """Searches for the given key in the hashtable and returns a boolean.
+
+        Parameters:
+        key : any type
+            The key of a key-value pair to be searched for.
+        """
         idx = self.hash(key)
 
         if not self.table[idx]:
