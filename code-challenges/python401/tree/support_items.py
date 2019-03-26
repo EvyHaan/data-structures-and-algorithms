@@ -67,7 +67,7 @@ class Queue:
         temp_q = self
         while temp_q.front:
             lst.append(temp_q.dequeue())
-        return 'Queue: {}'.format(lst[::-1])
+        return '<Queue: {}>'.format(lst[::-1])
 
 
 class Stack:
