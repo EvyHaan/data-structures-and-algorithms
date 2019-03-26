@@ -1,11 +1,12 @@
 # First repeated word
-<!-- Short summary or background information -->
 
 ## Challenge
-<!-- Description of the challenge -->
+Write a function that takes in a string and returns the first word that occurs more than once in that provided string. 
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+A hashtable was used to implement the function. This provides the following efficiency:
+- Space: O(n)
+- Time: O(n)
 
 ## Solution
-<!-- Embedded whiteboard image -->
+![repeated_word](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/repeated_word/assets/repeated_word.jpg)
