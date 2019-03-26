@@ -3,6 +3,12 @@ import re
 
 
 def repeated_word(sentance):
+    """Returns the first word that repeats in a string.
+
+    Parameters
+    sentance : str
+        Misnomer. It can take in a string of any length.
+    """
     rgx = r"\W+"
     words = sentance.split(' ')
     ht = Hashtable()

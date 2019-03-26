@@ -246,7 +246,7 @@ class Hashtable:
         return False
 
     def __repr__(self):
-        pass
+        return '<Hashtable with 1024 buckets>'
 
 
 if __name__ == "__main__":
@@ -254,4 +254,3 @@ if __name__ == "__main__":
     ht.add('ag', 'god')
     ht.add('ec', 'gdo')
     print(ht.contains('dd'))
-    
