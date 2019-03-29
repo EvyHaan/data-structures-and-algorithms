@@ -1,4 +1,4 @@
-from hashtable import Hashtable
+from .hashtable import Hashtable
 
 
 def test_hash_string_key():
@@ -26,7 +26,7 @@ def test_add_two_collision():
     ht = Hashtable()
     ht.add('dd', 'dog')
     ht.add('ag', 'gold')
-    assert ht.table[1016].head.value == ('dd', 'gold')
+    assert ht.table[1016].head.value == ('ag', 'gold')
     assert ht.table[1016].head._next.value == ('dd', 'dog')
 
 
