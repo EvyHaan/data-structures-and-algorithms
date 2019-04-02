@@ -1,4 +1,4 @@
-from insert_sort import insertion_sort
+from merge_sort import merge_sort
 
 
 def test_randomly_unsorted_list():
@@ -6,41 +6,41 @@ def test_randomly_unsorted_list():
     lst = ['C', 'B', 'D', 'E', 'A']
 
     expected = ['A', 'B', 'C', 'D', 'E']
-    actual = insertion_sort(lst)
+    actual = merge_sort(lst)
     assert actual == expected
 
 
-def test_sorted_list():
-    """A sorted list will return unchanged"""
-    lst = ['A', 'B', 'C', 'D', 'E']
+# def test_sorted_list():
+#     """A sorted list will return unchanged"""
+#     lst = ['A', 'B', 'C', 'D', 'E']
 
-    expected = ['A', 'B', 'C', 'D', 'E']
-    actual = insertion_sort(lst)
-    assert actual == expected
-
-
-def test_backward_list():
-    """A backward list will return reversed"""
-    lst = ['E', 'D', 'C', 'B', 'A']
-
-    expected = ['A', 'B', 'C', 'D', 'E']
-    actual = insertion_sort(lst)
-    assert actual == expected
+#     expected = ['A', 'B', 'C', 'D', 'E']
+#     actual = merge_sort(lst)
+#     assert actual == expected
 
 
-def test_empty_list():
-    """An empty list will return unchanged"""
-    lst = []
+# def test_backward_list():
+#     """A backward list will return reversed"""
+#     lst = ['E', 'D', 'C', 'B', 'A']
 
-    expected = []
-    actual = insertion_sort(lst)
-    assert actual == expected
+#     expected = ['A', 'B', 'C', 'D', 'E']
+#     actual = merge_sort(lst)
+#     assert actual == expected
 
 
-def test_single_item_list():
-    """A one-itemed list will return unchanged"""
-    lst = ['A']
+# def test_empty_list():
+#     """An empty list will return unchanged"""
+#     lst = []
 
-    expected = ['A']
-    actual = insertion_sort(lst)
-    assert actual == expected
+#     expected = []
+#     actual = merge_sort(lst)
+#     assert actual == expected
+
+
+# def test_single_item_list():
+#     """A one-itemed list will return unchanged"""
+#     lst = ['A']
+
+#     expected = ['A']
+#     actual = merge_sort(lst)
+#     assert actual == expected
