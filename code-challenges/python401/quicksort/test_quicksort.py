@@ -1,12 +1,12 @@
-from merge_sort import merge_sort
+from quicksort import quicksort
 
 
 def test_randomly_unsorted_list():
     """An unsorted list returns sorted"""
-    lst = ['C', 'B', 'D', 'E', 'A']
+    lst = [3, 2, 4, 5, 1, 6]
 
-    expected = ['A', 'B', 'C', 'D', 'E']
-    actual = merge_sort(lst)
+    expected = [1, 2, 3, 4, 5, 6]
+    actual = quicksort(lst)
     assert actual == expected
 
 
@@ -15,7 +15,7 @@ def test_sorted_list():
     lst = ['A', 'B', 'C', 'D', 'E']
 
     expected = ['A', 'B', 'C', 'D', 'E']
-    actual = merge_sort(lst)
+    actual = quicksort(lst)
     assert actual == expected
 
 
@@ -24,7 +24,7 @@ def test_backward_list():
     lst = ['E', 'D', 'C', 'B', 'A']
 
     expected = ['A', 'B', 'C', 'D', 'E']
-    actual = merge_sort(lst)
+    actual = quicksort(lst)
     assert actual == expected
 
 
@@ -33,7 +33,7 @@ def test_empty_list():
     lst = []
 
     expected = []
-    actual = merge_sort(lst)
+    actual = quicksort(lst)
     assert actual == expected
 
 
@@ -42,5 +42,5 @@ def test_single_item_list():
     lst = ['A']
 
     expected = ['A']
-    actual = merge_sort(lst)
+    actual = quicksort(lst)
     assert actual == expected
