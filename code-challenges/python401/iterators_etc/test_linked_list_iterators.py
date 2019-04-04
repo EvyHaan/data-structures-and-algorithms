@@ -92,3 +92,4 @@ def test_concat():
     assert len(list(tutti)) == 4
 
     assert len(list(montagues)) == 2
+
