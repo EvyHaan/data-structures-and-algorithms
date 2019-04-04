@@ -5,10 +5,14 @@
 class LinkedList:
     """A class that instantiates a new linked lists
     """
-
     head = None
 
-    # WRITE NEW FUNCTION FOR INSERT AT BEGINNING
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current.value
+            current = current._next
+    
     def ll_insert(self, value):
         """Function to insert a new node into a singly linked list
         """
@@ -164,44 +168,6 @@ class LinkedList:
                 curr1.next = curr2
                 curr2.next = ref1
                 return head1
-
-    #     if not self.head:
-    #         if list2.head:
-    #             head1 = list2.head
-    #         else:
-    #             head1 = None
-    #     else:
-    #         head1 = self.head
-    #         if list2.head:
-    #             head2 = list2.head
-    #         else:
-    #             head2 = list2.head
-
-    #     if head1 and head2:
-    #         curr1 = head1
-    #         curr2 = head2
-    #         ref1 = head1
-    #         ref2 = head2
-
-    #         while curr1._next or curr2._next:
-    #             ref1 = curr1._next
-    #             ref2 = curr2._next
-    #             curr2._next = ref1
-    #             curr1._next = curr2
-    #             curr2 = ref2
-    #             curr1 = ref1
-    #             # if not curr1._next or not curr2._next:
-    #             #     break
-
-    #         if curr1._next:
-    #             curr2._next = ref1
-    #         else:
-    #             curr1._next = ref2
-
-    #     else:
-    #         head1 = None
-
-    #     return head1
 
 
 class Node():
