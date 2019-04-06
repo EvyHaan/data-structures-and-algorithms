@@ -73,9 +73,9 @@ class Graph():
         return size
 
     def __repr__(self):
-        graph = []
-
-        return graph
+        temp_graph = self._table
+        return '<Graph: {}>'.format(temp_graph)
 
     def __str__(self):
-        pass
+        temp_graph = self._table
+        return 'This graph contains: {}'.format(temp_graph)
