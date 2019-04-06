@@ -12,8 +12,6 @@ def test_instantiation():
     """
     assert LinkedList()
 
-# WRITE NEW TESTS FOR INSERT AT BEGINNING
-
 
 def test_insert():
     """Can properly insert into the linked list

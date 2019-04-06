@@ -1,8 +1,10 @@
-from .binary_tree import BinarySearchTree
+from ..tree.tree import BinarySearchTree
 import pytest
+
 
 def test_class():
     assert BinarySearchTree
+
 
 def test_traverse():
     tree = BinarySearchTree()
@@ -12,9 +14,9 @@ def test_traverse():
 
     items = list(tree.traverse_in_order())
 
-    assert items == ['apples','bananas','cucumbers']
+    assert items == ['apples', 'bananas', 'cucumbers']
 
-@pytest.mark.skip('pending')
+
 def test_traverse_for_loop():
     tree = BinarySearchTree()
     tree.add('bananas')
@@ -26,11 +28,11 @@ def test_traverse_for_loop():
     for item in tree.traverse_in_order():
         items.append(item)
 
-    assert items == ['apples','bananas','cucumbers']
+    assert items == ['apples', 'bananas', 'cucumbers']
 
 ####### Recursive Yield Example ###
 # def traverse_in_order(self):
-        
+
 #         def _traverse(node):
 #             if not node:
 #                 return

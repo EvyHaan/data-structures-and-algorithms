@@ -17,6 +17,37 @@ class BinaryTree():
     def __init__(self):
         self.root = None
 
+    def traverse_in_order(self):
+
+        def _traverse(current):
+            if not current:
+                return
+            yield from _traverse(current.left_child)
+            yield current.value
+            yield from _traverse(current.right_child)
+
+        return _traverse(self.root)
+
+    def traverse_pre_order(self):
+
+        def _traverse(current):
+            if not current:
+                return
+            yield current.value
+            yield from _traverse(current.left_child)
+            yield from _traverse(current.right_child)
+        return _traverse(self.root)
+
+    def traverse_post_order(self):
+
+        def _traverse(current):
+            if not current:
+                return
+            yield from _traverse(current.left_child)
+            yield from _traverse(current.right_child)
+            yield current.value
+        return _traverse(self.root)
+
     def preorder(self, current=None):
         """Function to return binary tree in preorder as an array"""
 
@@ -116,7 +147,8 @@ class BinaryTree():
             max_so_far = max(max_from_child, max_so_far)
 
         if current.right_child is not None:
-            max_from_child = self.pre_order_max(current.right_child, max_so_far)
+            max_from_child = self.pre_order_max(
+                current.right_child, max_so_far)
             max_so_far = max(max_from_child, max_so_far)
 
         return max_so_far
