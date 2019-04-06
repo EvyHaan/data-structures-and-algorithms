@@ -1,18 +1,33 @@
 """This module defines defines operations for a singly linked lists.
 """
+from copy import copy, deepcopy
 
 
 class LinkedList:
     """A class that instantiates a new linked lists
     """
-    head = None
+    def __init__(self, iterable=None):
+        self.head = None
+        if iterable:
+            for value in iterable:
+                self.ll_append(value)
 
     def __iter__(self):
         current = self.head
         while current:
             yield current.value
             current = current._next
-    
+
+    def __add__(self, iterable):
+        new_list = deepcopy(self)
+        for value in iterable:
+            new_list.ll_append(value)
+        return new_list
+
+    def __iadd__(self, value):
+        self.ll_append(value)
+        return self
+
     def ll_insert(self, value):
         """Function to insert a new node into a singly linked list
         """
