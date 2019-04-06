@@ -18,7 +18,7 @@ class BinaryTree():
         self.root = None
 
     def traverse_in_order(self):
-        """Traverse a tree in order using a generator."""
+        """Traverse a tree in in-order using a generator."""
 
         def _traverse(current):
             if not current:
@@ -30,7 +30,7 @@ class BinaryTree():
         return _traverse(self.root)
 
     def traverse_pre_order(self):
-        """Traverse a tree in order using a generator."""
+        """Traverse a tree in pre-order using a generator."""
 
         def _traverse(current):
             if not current:
@@ -41,7 +41,7 @@ class BinaryTree():
         return _traverse(self.root)
 
     def traverse_post_order(self):
-        """Traverse a tree in order using a generator."""
+        """Traverse a tree in post-order using a generator."""
 
         def _traverse(current):
             if not current:
@@ -134,6 +134,28 @@ class BinaryTree():
 
         return lst
 
+    def traverse_breadth_first(self):
+        """Traverse a tree breadth-first using a generator."""
+        def _traverse(current):
+
+            if not current:
+                return
+
+            breadth_queue = Queue()
+            breadth_queue.enqueue(current)
+
+            while breadth_queue.peek():
+                current = breadth_queue.dequeue()
+                yield current.value
+                if current.left_child:
+                    breadth_queue.enqueue(current.left_child)
+                if current.right_child:
+                    breadth_queue.enqueue(current.right_child)
+            yield from _traverse(current.left_child)
+            yield from _traverse(current.right_child)
+
+        return _traverse(self.root)
+
     def pre_order_max(self, current=None, max_so_far=None):
 
         if not self.root:
@@ -212,6 +234,7 @@ class BinarySearchTree(BinaryTree):
 
         if current.left_child:
             self.fizz_buzz_tree(current.left_child)
+
         if isinstance(current.value, int):
             if current.value % 3 == 0 and current.value % 5 == 0:
                 current.value = 'FizzBuzz'
