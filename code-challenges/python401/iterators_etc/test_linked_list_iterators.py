@@ -6,9 +6,8 @@ def test_linked_list_class():
     assert LinkedList
 
 
-# Why is something being passed in here? TypeError: Object LinkedList() takes no arguments
-# def test_linked_list_instance():
-#     assert LinkedList('foo')
+def test_linked_list_instance():
+    assert LinkedList('foo')
 
 
 def test_linked_list_ll_append_one():
@@ -76,7 +75,6 @@ def test_linked_list_filter():
 
 def test_add_operator():
     animals = LinkedList()
-
     animals += 'giraffe'
 
     assert list(animals) == ['giraffe']
@@ -84,12 +82,8 @@ def test_add_operator():
 
 def test_concat():
     montagues = LinkedList(['Romeo', 'Benvolio'])
-
     capulets = LinkedList(['Juliet', 'Tybalt'])
-
     tutti = montagues + capulets
 
     assert len(list(tutti)) == 4
-
     assert len(list(montagues)) == 2
-

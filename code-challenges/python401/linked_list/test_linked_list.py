@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from .linked_list import LinkedList
 
 
 def test_exists():
@@ -11,8 +11,6 @@ def test_instantiation():
     """Can successfully instantiate an empty linked list
     """
     assert LinkedList()
-
-# WRITE NEW TESTS FOR INSERT AT BEGINNING
 
 
 def test_insert():
