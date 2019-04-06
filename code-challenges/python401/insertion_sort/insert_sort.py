@@ -1,4 +1,14 @@
 def insertion_sort(lst):
+    """Returns a sorted array.
+
+    A provided list will be sorted out-of-place.
+
+    Args:
+        list: a list to be sorted.
+
+    Returns:
+        list: a new list, sorted from least to greatest.
+    """
     for i in range(1, len(lst)):
         current_idx = i
         temp_val = lst[i]

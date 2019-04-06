@@ -1,4 +1,14 @@
 def merge_sort(lst):
+    """Returns a sorted array.
+
+    A provided list will be sorted out-of-place.
+    
+    Args:
+        list: a list to be sorted.
+    
+    Returns:
+        list: a new list, sorted from least to greatest.
+    """
     lst_len = len(lst)
 
     if lst_len <= 1:

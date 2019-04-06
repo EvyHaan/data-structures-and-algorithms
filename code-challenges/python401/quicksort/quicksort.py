@@ -1,5 +1,15 @@
 def quicksort(lst):
-    print('sorting list:', lst)
+    """Returns a sorted array.
+
+    A provided list will be sorted in place.
+
+    Args:
+        list: a list to be sorted.
+
+    Returns:
+        list: a new list, sorted from least to greatest.
+    """
+
     if len(lst) <= 1:
         return lst
 
@@ -25,7 +35,3 @@ def quicksort(lst):
         right_lst = quicksort(lst[pivot + 1:])
 
         return left_lst + [lst[pivot]] + right_lst
-
-if __name__ == "__main__":
-    test_lst = [3, 2, 4, 5, 1, 6]
-    quicksort(test_lst)
