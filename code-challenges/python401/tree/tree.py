@@ -112,28 +112,6 @@ class BinaryTree():
 
         return post_order_list
 
-    def breadth_first(self, current=None):
-        breadth_queue = Queue()
-        lst = []
-
-        if not current:
-            current = self.root
-
-        breadth_queue.enqueue(self.root)
-
-        while breadth_queue.peek():
-            current = breadth_queue.dequeue()
-
-            if current.left_child:
-                breadth_queue.enqueue(current.left_child)
-
-            if current.right_child:
-                breadth_queue.enqueue(current.right_child)
-
-            lst.append(current.value)
-
-        return lst
-
     def traverse_breadth_first(self):
         """Traverse a tree breadth-first using a generator."""
         def _traverse(current):
@@ -155,6 +133,28 @@ class BinaryTree():
             yield from _traverse(current.right_child)
 
         return _traverse(self.root)
+
+    def breadth_first(self, current=None):
+        breadth_queue = Queue()
+        lst = []
+
+        if not current:
+            current = self.root
+
+        breadth_queue.enqueue(self.root)
+
+        while breadth_queue.peek():
+            current = breadth_queue.dequeue()
+
+            if current.left_child:
+                breadth_queue.enqueue(current.left_child)
+
+            if current.right_child:
+                breadth_queue.enqueue(current.right_child)
+
+            lst.append(current.value)
+
+        return lst
 
     def pre_order_max(self, current=None, max_so_far=None):
 
