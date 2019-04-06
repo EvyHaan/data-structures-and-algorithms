@@ -18,6 +18,7 @@ class BinaryTree():
         self.root = None
 
     def traverse_in_order(self):
+        """Traverse a tree in order using a generator."""
 
         def _traverse(current):
             if not current:
@@ -29,6 +30,7 @@ class BinaryTree():
         return _traverse(self.root)
 
     def traverse_pre_order(self):
+        """Traverse a tree in order using a generator."""
 
         def _traverse(current):
             if not current:
@@ -39,6 +41,7 @@ class BinaryTree():
         return _traverse(self.root)
 
     def traverse_post_order(self):
+        """Traverse a tree in order using a generator."""
 
         def _traverse(current):
             if not current:
