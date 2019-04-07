@@ -1,46 +1,34 @@
 def radix_sort(lst):
     """Returns a sorted array.
 
-    A provided list will be sorted out-of-place.
+#     A provided list will be sorted out-of-place.
 
-    Args:
-        list: a list to be sorted.
+#     Args:
+#         lst: a list to be sorted.
 
-    Returns:
-        list: a new list, sorted from least to greatest.
-    """
+#     Returns:
+#         lst: the mutated list, sorted from least to greatest.
+#     """
     if len(lst) <= 1:
         return lst
 
-    if len(lst) > 1:
-        digitmax = max(lst)
-        exp = 1
+    max_digit = len(str(max(lst)))
+    exp = 0
 
-        while (digitmax + 1) / exp > 1:
-            sortd = sorting_hat(lst, exp)
-            exp *= 10
+    while max_digit > exp:
+        nunnery = [None] * 10
 
-        return sortd
+        while lst:
+            idx = (lst[0] // 10 ** exp) % 10
+            if nunnery[idx] is None:
+                nunnery[idx] = [lst.pop(0)]
+            else:
+                nunnery[idx].append(lst.pop(0))
 
+        for bucket in nunnery:
+            if bucket is not None:
+                lst += bucket
 
-def sorting_hat(lst, exp):
-    presorted = []
-    nunnery = [[]] * 10
-    n = 0
+        exp += 1
 
-    for num in lst:
-        print(n, 'num: ' + str(num))
-        sort_idx = (num // 10 ** n) % 10
-
-        if not nunnery[sort_idx]:
-            nunnery.insert(sort_idx, [num])
-        else:
-            nunnery[sort_idx] += [num]
-        n += 1
-
-    print(nunnery)
-    for i in range(len(nunnery)):
-        presorted += nunnery[i]
-        print(presorted)
-
-    return presorted
+    return lst
