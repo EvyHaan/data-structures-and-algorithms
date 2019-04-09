@@ -227,7 +227,7 @@ class Stack:
                 temp = top
                 top = top._next
                 temp._next = None
-        
+
         return temp.value
 
 
@@ -252,19 +252,25 @@ class Queue:
             current._next = node
             self.rear = current._next
 
-
     def dequeue(self):
         """
         """
 
         if not self.front:
-            return 'Queue is empty'
+            return None
         else:
             temp = self.front
             self.front = temp._next
             temp._next = None
-        
+
         return temp.value
+
+    def __repr__(self):
+        lst = []
+        temp_q = self
+        while temp_q.front:
+            lst.append(temp_q.dequeue())
+        return '<Queue: {}>'.format(lst[::-1])
 
 
 class Node():
