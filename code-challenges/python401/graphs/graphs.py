@@ -2,6 +2,7 @@
 
 This module contains the Graph class with built-in methods.
 """
+from ..stacks_and_queues.stacks_and_queues import Queue, Node
 
 
 class Graph():
@@ -71,6 +72,36 @@ class Graph():
         for key in self._table.keys():
             size += 1
         return size
+
+    def breadth_traversal(self, vertex):
+        """Traverses a graph breadth-first.
+
+        Args:
+            vertex (str): reference to a vertex to search the graph.
+
+        Returns:
+            vertices (list): a list of vertices that are connected in some degree to the given vertex. Will not return island vertices.
+        """
+        que = Queue()
+        visited = []
+        vertices = []
+
+        que.enqueue(vertex)
+        visited.append(vertex)
+
+        while que:
+            current = que.dequeue()
+            vertices.append(current)
+            neighbors = self.get_neighbors(current)
+
+            if len(neighbors) > 0:
+                for neighbor in neighbors:
+                    if neighbor[0] not in visited:
+                        que.enqueue(neighbor[0])
+                        visited.append(neighbor[0])
+            else:
+                return vertices
+        return vertices
 
     def __repr__(self):
         temp_graph = self._table
