@@ -60,6 +60,7 @@ class Graph():
         neighbors = []
         for key in self._table[vertex]:
             neighbors.append((key, self._table[vertex][key]))
+
         return neighbors
 
     def size(self):
@@ -89,7 +90,7 @@ class Graph():
         que.enqueue(vertex)
         visited.append(vertex)
 
-        while que:
+        while que.front:
             current = que.dequeue()
             vertices.append(current)
             neighbors = self.get_neighbors(current)
