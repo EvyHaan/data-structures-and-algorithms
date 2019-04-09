@@ -26,3 +26,9 @@ The structure of the implemented graph is a dictionary whose keys are a referenc
 - **.size()**
     - finds the size of the Graph by counting the vertices within it.
     - *Efficiency*: Space: O(1) Time: O(n)
+- **.breadth_traversal()**
+    - conducts a breadth-first traversal of a Graph.
+    - *Efficiency*: Space: O(n) Time: O(n)
+
+## Method Solutions
+![graph_breadth_traversal](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/graph_breadth_traversal/assets/graph_breadth_traversal.jpg)
