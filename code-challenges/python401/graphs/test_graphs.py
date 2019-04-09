@@ -105,12 +105,12 @@ def test_btraversal_two_vertex():
     apple = g.add_vertex('apple')
     banana = g.add_vertex('banana')
     g.add_edge(apple, banana, 4)
-    # import pdb; pdb.set_trace()
 
     assert g.breadth_traversal('apple') == ['apple', 'banana']
 
 
 def test_traversal_multiple_neighbors():
+    g = Graph()
     apple = g.add_vertex('apple')
     banana = g.add_vertex('banana')
     fig = g.add_vertex('fig')
@@ -119,10 +119,13 @@ def test_traversal_multiple_neighbors():
     g.add_edge(apple, fig, 5)
     g.add_edge(apple, plum, 5)
 
-    assert g.breadth_traversal('apple') == ['apple', 'fig', 'banana', 'plum']
+    for i in ['apple', 'fig', 'banana', 'plum']:
+        assert i in g.breadth_traversal('apple')
+    assert len(g.breadth_traversal('apple')) == 4
 
 
 def test_btraversal_shared_neighbor():
+    g = Graph()
     apple = g.add_vertex('apple')
     banana = g.add_vertex('banana')
     fig = g.add_vertex('fig')
@@ -132,10 +135,13 @@ def test_btraversal_shared_neighbor():
     g.add_edge(apple, plum, 5)
     g.add_edge(plum, banana, 4)
 
-    assert g.breadth_traversal('apple') == ['apple', 'fig', 'banana', 'plum']
+    for i in ['apple', 'fig', 'banana', 'plum']:
+        assert i in g.breadth_traversal('apple')
+    assert len(g.breadth_traversal('apple')) == 4
 
 
 def test_btraversal_island():
+    g = Graph()
     apple = g.add_vertex('apple')
     banana = g.add_vertex('banana')
     fig = g.add_vertex('fig')
