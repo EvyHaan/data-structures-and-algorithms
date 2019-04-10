@@ -32,3 +32,10 @@ The structure of the implemented graph is a dictionary whose keys are a referenc
 
 ## Method Solutions
 ![graph_breadth_traversal](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/graph_breadth_traversal/assets/graph_breadth_traversal.jpg)
+
+## Additional Challenges
+
+### Direct Flights Challenge
+Given a graph of connected cities and a list of cities, determine if the trip can be made through direct flights or not. Return 'True' and the cost if it can, or 'False' and '$0' if it can't.
+
+![direct_flights](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/direct_flights/assets/direct_flights.jpg)
