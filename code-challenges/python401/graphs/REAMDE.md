@@ -31,7 +31,11 @@ The structure of the implemented graph is a dictionary whose keys are a referenc
     - *Efficiency*: Space: O(n) Time: O(n)
 
 ## Method Solutions
+### Breadth First Traversal
 ![graph_breadth_traversal](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/graph_breadth_traversal/assets/graph_breadth_traversal.jpg)
+
+### Depth First Traversal
+![graph_depth_traversal](https://github.com/EvyHaan/data-structures-and-algorithms/blob/master/code-challenges/python401/graph_depth_traversal/assets/graph_depth_traversal.jpg)
 
 ## Additional Challenges
 

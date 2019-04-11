@@ -2,7 +2,7 @@
 
 This module contains the Graph class with built-in methods.
 """
-from ..stacks_and_queues.stacks_and_queues import Queue, Node
+from ..stacks_and_queues.stacks_and_queues import Queue, Node, Stack
 
 
 class Graph():
@@ -103,6 +103,24 @@ class Graph():
             else:
                 return vertices
         return vertices
+
+    def depth_first(self, vertex):
+        s = Stack()
+        vistited = []
+        vertices = []
+
+        s.push(vertex)
+        visited.append(vertex)
+        
+        while s.top:
+            current = s.top()
+            vertices.append(current)
+            neighbors = self.get_neighbors(current)
+            for neighbor[0] in neighbors:
+                if neighbor[0] not in visited:
+                    s.push(neighbor[0])
+                    visited.append(neighbor[0])
+        return vistited
 
     def __repr__(self):
         temp_graph = self._table
