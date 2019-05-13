@@ -9,6 +9,7 @@ def insertion_sort(lst):
     Returns:
         list: a new list, sorted from least to greatest.
     """
+
     for i in range(1, len(lst)):
         current_idx = i
         temp_val = lst[i]
