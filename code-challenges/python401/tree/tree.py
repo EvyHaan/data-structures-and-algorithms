@@ -162,7 +162,7 @@ class BinaryTree():
             return None
 
         if not current:
-            current = self.root
+            current = self.rooto
             max_so_far = current.value
 
         max_so_far = max(current.value, max_so_far)

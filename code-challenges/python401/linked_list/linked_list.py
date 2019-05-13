@@ -40,6 +40,7 @@ class LinkedList:
             self.head = node
         else:
             current = self.head
+            
             node._next = current
             self.head = node
 
