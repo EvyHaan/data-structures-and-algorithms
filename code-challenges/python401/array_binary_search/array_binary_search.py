@@ -2,13 +2,14 @@
 This module conducts a binary search.
 """
 
+
 def binary_search(arr, target):
     """
     A function that conducts a binary search for a target in a sorted list.
 
     Parameters:
         arr (list): The list to be searched.
-        target (number, str): The target element to be searched for. 
+        target (number, str): The target element to be searched for.
     """"
 
     l_bound = 0

@@ -1,5 +1,6 @@
 from array_binary_search import binary_search
 
+
 def test_binarysearch_even():
     input_arr = ['a', 'b', 'c', 'd', 'e', 'f']
     input_target = 'b'
